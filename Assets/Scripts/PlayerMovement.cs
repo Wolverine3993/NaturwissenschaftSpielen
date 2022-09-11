@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
         if (inputy > 0 && TouchingGround() && !TouchingWallRight())
+        {
             Jump();
+        }
         if (input > 0)
             transform.localScale = new Vector3(1f, transform.localScale.y, 1f);
         if (input < 0)

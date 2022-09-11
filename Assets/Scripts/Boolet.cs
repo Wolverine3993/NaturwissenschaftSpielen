@@ -36,7 +36,9 @@ public class Boolet : MonoBehaviour
     {
        
         timer = 5f;
+        
         direction = Mathf.Sign(GameObject.Find("Capsule").transform.localScale.x);
+        
         GameObject bulletControlG = GameObject.Find("booletControl");
         bulletControl = bulletControlG.GetComponent<bulletControl>();
         float booletSpeed = bulletControl.booletSpeed;

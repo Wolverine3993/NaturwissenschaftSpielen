@@ -12,7 +12,7 @@ public class bulletControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && timer <= 0)
+        if (Input.GetKey(KeyCode.P) && timer <= 0)
         {
             Shoot();
             timer = 0.5f;
@@ -20,7 +20,7 @@ public class bulletControl : MonoBehaviour
         timer -= Time.deltaTime;
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         for(int i = bullets.Length-1; i > -1; i--)
         {
