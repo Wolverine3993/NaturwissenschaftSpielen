@@ -8,11 +8,11 @@ public class bulletControl : MonoBehaviour
     [SerializeField] private GameObject[] bullets;
     [SerializeField] private int cooldown;
     private float timer = 0;
-    
+
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.P) && timer <= 0)
+        if (Input.GetKey(KeyCode.Mouse0) && timer <= 0)
         {
             Shoot();
             timer = 0.5f;

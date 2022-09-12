@@ -376,6 +376,7 @@
 "Assets/Scripts/bulletControl.cs"
 "Assets/Scripts/enemy.cs"
 "Assets/Scripts/Ignore.cs"
+"Assets/Scripts/NextScene.cs"
 "Assets/Scripts/PlayerMovement.cs"
 -langversion:9.0
 
