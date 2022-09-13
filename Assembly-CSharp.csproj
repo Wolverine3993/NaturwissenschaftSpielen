@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Background.cs" />
+    <Compile Include="Assets\Scripts\Quit.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
     <Compile Include="Assets\Scripts\bulletControl.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

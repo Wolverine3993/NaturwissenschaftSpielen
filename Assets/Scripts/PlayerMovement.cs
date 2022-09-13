@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
         if (input > 0)
-            transform.localScale = new Vector3(1f, transform.localScale.y, 1f);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1f);
         if (input < 0)
-            transform.localScale = new Vector3(-1f, transform.localScale.y, 1f);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, 1f);
         
         direction = input;
         
