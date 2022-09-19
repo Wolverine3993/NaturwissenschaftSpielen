@@ -13,22 +13,14 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
-    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
-    - UnityEditor.Tilemaps.TilemapEditorToolPreferences
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
-    Unity.2D.Tilemap.Extras.Editor.dll:
-    - UnityEditor.Tilemaps.GameObjectBrush
-    - UnityEditor.Tilemaps.GroupBrush
-    - UnityEditor.Tilemaps.LineBrush
-    - UnityEditor.Tilemaps.RandomBrush
     Unity.CollabProxy.Editor.dll:
     - Unity.Cloud.Collaborate.UserInterface.CollaborateWindow
     Unity.Rider.Editor.dll:
@@ -1172,4 +1164,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/StartScreen.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/oscar/OneDrive/Desktop/science game mac test.app
+  playerPath: C:/Users/oscar/OneDrive/Desktop/sicien.app

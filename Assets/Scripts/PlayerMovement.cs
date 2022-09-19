@@ -40,13 +40,9 @@ public class PlayerMovement : MonoBehaviour
         ///jump
         
         Sprint();
-        ///set y pos to origin
-        if(transform.position.y < -6f)
-        {
-            Dead();
-        }
+
         ///wall no stick
-        if (TouchingWallRight())
+        if (TouchingWallRight() && boby.velocity.y <= 0)
             boby.velocity = new Vector2(boby.velocity.x, -wallSlide);
     }
 
@@ -83,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private bool TouchingWallRight()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxColider.bounds.center, boxColider.bounds.size, 0f, Vector2.right, 0.1f, groundLayer);
-        RaycastHit2D rarycastHit = Physics2D.BoxCast(boxColider.bounds.center, boxColider.bounds.size, 0f, Vector2.left, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxColider.bounds.center, new Vector3(boxColider.bounds.size.x, boxColider.bounds.size.y - 0.2f, boxColider.bounds.size.z), 0f, Vector2.right, 0.1f, groundLayer);
+        RaycastHit2D rarycastHit = Physics2D.BoxCast(boxColider.bounds.center, new Vector3(boxColider.bounds.size.x, boxColider.bounds.size.y - 0.2f, boxColider.bounds.size.z), 0f, Vector2.left, 0.1f, groundLayer);
         if (raycastHit != false)
             return raycastHit != false;
         return rarycastHit != false;
