@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
         ///set rotation
         transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         ///jump
-        
+        if (transform.position.y <= -18.9)
+            Dead();
         Sprint();
 
         ///wall no stick
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if (collision.gameObject.name == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
             Dead();
 
     }
