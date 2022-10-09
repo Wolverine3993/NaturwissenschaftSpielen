@@ -10,8 +10,6 @@ public class PlayerHurt : MonoBehaviour
     [SerializeField] float spriteTimer;
     [SerializeField] Rigidbody2D boby;
     [SerializeField] SpriteRenderer sprite;
-    [SerializeField] SpriteRenderer healthSprite;
-    [SerializeField] Sprite[] healthSprites;
     float _spriteTimer;
     public int health;
     float _icooldown;
@@ -59,6 +57,15 @@ public class PlayerHurt : MonoBehaviour
                 Dead();
             _icooldown = icooldown;
             _spriteTimer = spriteTimer;
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Heart" && health < MaxHealth)
+        {
+            collision.gameObject.SetActive(false);
+            health++;
         }
     }
 

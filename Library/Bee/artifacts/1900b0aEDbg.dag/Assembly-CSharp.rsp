@@ -376,6 +376,7 @@
 "Assets/Scripts/Background.cs"
 "Assets/Scripts/Boolet.cs"
 "Assets/Scripts/bulletControl.cs"
+"Assets/Scripts/Camrea.cs"
 "Assets/Scripts/EnemyControl.cs"
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HeartPickup.cs"
