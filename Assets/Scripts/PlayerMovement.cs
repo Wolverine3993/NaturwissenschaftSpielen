@@ -38,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
         ///set rotation
         transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         ///jump
-        if (transform.position.y <= -18.9)
-            Dead();
         Sprint();
 
         ///wall no stick
@@ -59,19 +57,6 @@ public class PlayerMovement : MonoBehaviour
         
         boby.velocity = new Vector2(boby.velocity.x, jumpHeight);
         
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-        if (collision.gameObject.tag == "Enemy")
-            Dead();
-
-    }
-
-    public void Dead()
-    {
-        transform.position = new Vector2(-0.63f, 1.8f);
-        boby.velocity = new Vector2(0f, 0f);
     }
     private bool TouchingGround()
     {
