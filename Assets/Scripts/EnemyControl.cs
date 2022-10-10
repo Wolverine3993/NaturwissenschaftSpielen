@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     [SerializeField] Transform enemy;
-    [SerializeField] Rigidbody2D enemyRigidbody;
     [SerializeField] BoxCollider2D boxCollideeer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Animator anim;
+    [SerializeField] SpriteRenderer sprite;
     [SerializeField] float MovementSpeed;
     [SerializeField] int health;
+    [SerializeField] float iTimer;
+    float betweenSprites = 0.1f;
+    float _iTimer;
     int direction = 1;
     float timer = 0.1f;
     float _timer;
@@ -28,6 +31,22 @@ public class EnemyControl : MonoBehaviour
             enemy.localScale = new Vector2(Mathf.Abs(enemy.localScale.x) * -1, enemy.localScale.y);
         else
             enemy.localScale = new Vector2(Mathf.Abs(enemy.localScale.x), enemy.localScale.y);
+        if (_iTimer > 0)
+        {
+            _iTimer -= Time.deltaTime;
+            betweenSprites -= Time.deltaTime;
+            if (betweenSprites <= 0)
+            {
+                sprite.enabled = !sprite.enabled;
+                betweenSprites = 0.2f;
+            }
+            else
+                betweenSprites -= Time.deltaTime;
+        }
+        else
+            sprite.enabled = true;
+
+            
     }
 
     private bool OnFloor()
@@ -41,11 +60,13 @@ public class EnemyControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bullet" && _iTimer <= 0)
         {
             health--;
             if (health <= 0)
                 gameObject.SetActive(false);
-        }        
+            _iTimer = iTimer;
+        }
+        
     }
 }

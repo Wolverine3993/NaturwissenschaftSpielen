@@ -26,6 +26,7 @@ public class bulletControl : MonoBehaviour
         {
             if (bullets[i].activeInHierarchy == false)
             {
+                bullets[i].transform.position = GameObject.Find("booletControl").transform.position;
                 bullets[i].SetActive(true);
                 return;
             }

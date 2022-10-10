@@ -11,7 +11,7 @@ public class Boolet : MonoBehaviour
     CircleCollider2D bulletObject;
     bulletControl bulletControl;
     private float timer;
-    private bool shot = false;
+    public bool shot = false;
     private float direction;
     private void Awake()
     {
