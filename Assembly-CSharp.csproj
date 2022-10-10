@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Boolet.cs" />
     <Compile Include="Assets\Scripts\HeartPickup.cs" />
     <Compile Include="Assets\Scripts\Ignore.cs" />
+    <Compile Include="Assets\Scripts\FireSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
