@@ -57,16 +57,14 @@ public class EnemyControl : MonoBehaviour
             return onEdgeOne;
         return onEdgeTwo;
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet" && _iTimer <= 0)
+        if (collision.gameObject.tag == "Bullet" && _iTimer <= 0)
         {
             health--;
             if (health <= 0)
                 gameObject.SetActive(false);
             _iTimer = iTimer;
         }
-        
     }
 }

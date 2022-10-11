@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &6178821
 SpriteRenderer:
@@ -429,6 +431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &354833505
 SpriteRenderer:
@@ -551,6 +555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &385046228
 SpriteRenderer:
@@ -1257,6 +1263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &593150849
 SpriteRenderer:
@@ -2070,6 +2078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &789793821
 SpriteRenderer:
@@ -2208,6 +2218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &826983028
 SpriteRenderer:
@@ -7348,6 +7360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &1069148000
 SpriteRenderer:
@@ -7655,6 +7669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &1323116649
 SpriteRenderer:
@@ -7793,6 +7809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &1380685518
 SpriteRenderer:
@@ -8197,6 +8215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!212 &1688144923
 SpriteRenderer:
@@ -8753,6 +8773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: 0
+  mousepos: {x: 0, y: 0, z: 0}
+  bulletPoint: {fileID: 1216475589}
   shot: 0
 --- !u!50 &2065424148
 Rigidbody2D:
