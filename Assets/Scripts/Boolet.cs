@@ -13,8 +13,8 @@ public class Boolet : MonoBehaviour
     CircleCollider2D bulletObject;
     bulletControl bulletControl;
     private float timer;
-    public bool shot = false;
     private float direction;
+    private bool shot = false;
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -26,11 +26,9 @@ public class Boolet : MonoBehaviour
     {
         if (!shot)
             Shoot();
-        if (timer <= 0 && shot)
+        if (timer <= 0)
         {
-            shot = false;
-            transform.position = new Vector2(1000f, 1000f);
-            gameObject.SetActive(false);
+            GameObject.Destroy(gameObject);
         }
         timer -= Time.deltaTime;
     }
@@ -49,7 +47,6 @@ public class Boolet : MonoBehaviour
         
         mtmtmtmtmmtm = bulletPoint.GetComponent<Ignore>();
         transform.position = mtmtmtmtmmtm.GetPos();
-        Debug.Log(yVal);
         if (Mathf.Abs(yVal) >= 0.8f && direction == 1)
             body.velocity = new Vector2(booletSpeed * direction, booletSpeed * Mathf.Sign(yVal));
         else if (Mathf.Abs(yVal) <= 2.3f && direction == -1)
@@ -66,11 +63,7 @@ public class Boolet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (shot)
-        {
-            shot = false;
-            transform.position = new Vector2(1000f, 1000f);
-            gameObject.SetActive(false);
-        }
+        if(collision.gameObject.tag != "player")
+            GameObject.Destroy(gameObject);
     }
 }

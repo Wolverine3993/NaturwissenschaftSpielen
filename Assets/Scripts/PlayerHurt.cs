@@ -66,6 +66,13 @@ public class PlayerHurt : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             health++;
+        }else if(collision.gameObject.tag == "Fire" && _icooldown <= 0)
+        {
+            health--;
+            if (health <= 0)
+                Dead();
+            _icooldown = icooldown;
+            _spriteTimer = spriteTimer;
         }
     }
 

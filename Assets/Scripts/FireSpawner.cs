@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class FireSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject[] fires;
+    [SerializeField] GameObject fire;
+    [SerializeField] GameObject fireEmpty;
     float timer;
+    float lifeTimer;
     private void Start()
     {
-        timer = 0.1f;
+        timer = 1f;
     }
     private void Update()
     {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            for (int i = fires.Length; i > 0; i--)
-            {
-                if (fires[i].activeInHierarchy == false)
-                {
-                    fires[i].transform.position = transform.position;
-                    fires[i].SetActive(true);
-                }
-            }
+            GameObject clone = GameObject.Instantiate(fire, new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z), transform.rotation, fireEmpty.transform);
+            clone.SetActive(true);
+            Destroy(clone, 0.5f);
             timer = 0.1f;
         }
     }

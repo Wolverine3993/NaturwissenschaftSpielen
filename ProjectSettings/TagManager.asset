@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
-  - kill me (please)
   - Heart
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Boss1
   - 
   - 
   - 
