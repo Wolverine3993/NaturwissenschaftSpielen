@@ -56,8 +56,9 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\bossTriggers.cs" />
     <Compile Include="Assets\Scripts\Background.cs" />
-    <Compile Include="Assets\Scripts\Camrea.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes.cs" />
     <Compile Include="Assets\Scripts\Quit.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
     <Compile Include="Assets\Scripts\bulletControl.cs" />
@@ -65,13 +66,12 @@
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\PlayerHurt.cs" />
+    <Compile Include="Assets\Scripts\CO2Boss.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Boolet.cs" />
     <Compile Include="Assets\Scripts\HeartPickup.cs" />
     <Compile Include="Assets\Scripts\Ignore.cs" />
-    <Compile Include="Assets\Scripts\CO2Boss.cs" />
-    <Compile Include="Assets\Scripts\bossTriggers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

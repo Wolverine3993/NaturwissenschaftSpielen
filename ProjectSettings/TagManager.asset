@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Heart
   - Fire
+  - Boss1
   layers:
   - Default
   - TransparentFX

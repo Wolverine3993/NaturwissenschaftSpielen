@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody2D boby;
     [SerializeField] public float direction;
-    [SerializeField] private float jumpHeight = 1f;
+    [SerializeField] private float jumpHeight;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float wallSlide;
     private BoxCollider2D boxColider;

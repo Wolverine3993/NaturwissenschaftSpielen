@@ -47,6 +47,7 @@ public class Boolet : MonoBehaviour
         
         mtmtmtmtmmtm = bulletPoint.GetComponent<Ignore>();
         transform.position = mtmtmtmtmmtm.GetPos();
+        Vector2 playerPos = GameObject.Find("Capsule").GetComponent<Rigidbody2D>().velocity;
         if (Mathf.Abs(yVal) >= 0.8f && direction == 1)
             body.velocity = new Vector2(booletSpeed * direction, booletSpeed * Mathf.Sign(yVal));
         else if (Mathf.Abs(yVal) <= 2.3f && direction == -1)
