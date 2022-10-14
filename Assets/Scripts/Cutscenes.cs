@@ -42,8 +42,8 @@ public class Cutscenes : MonoBehaviour
         cinematicBars.SetActive(true);
         if (timer1 <= 0 && pointIn == 1)
         {
-            transform.position = new Vector2(transform.position.x + -((transform.position.x - 0) * Time.deltaTime * movementSpeed), transform.position.y + -((transform.position.x - 46) * Time.deltaTime * movementSpeed));
-            if (transform.position.x >= 0 && transform.position.y >= 46)
+            transform.position = new Vector2((transform.position.x + (0 - transform.position.x)/2), (transform.position.y + (46 - transform.position.y)/2));
+            if (transform.position.x == 0 && transform.position.y == 46)
             {
                 pointIn = 2;
                 timer1 = 2f;
