@@ -7,6 +7,7 @@ public class PlayerHurt : MonoBehaviour
 {
     [SerializeField] float icooldown;
     [SerializeField] int MaxHealth;
+    [SerializeField] SpriteRenderer armSprite;
     [SerializeField] float spriteTimer;
     [SerializeField] Rigidbody2D boby;
     [SerializeField] SpriteRenderer sprite;
@@ -16,7 +17,7 @@ public class PlayerHurt : MonoBehaviour
 
     private void Start()
     {
-        health = MaxHealth;
+        health = 3;
     }
     private void Update()
     {
@@ -27,11 +28,13 @@ public class PlayerHurt : MonoBehaviour
         if (_icooldown > 0 && _spriteTimer <= 0)
         {
             sprite.enabled = !sprite.enabled;
+            armSprite.enabled = !armSprite.enabled;
             _spriteTimer = spriteTimer;
         }
         else if(_icooldown <= 0)
         {
             sprite.enabled = true;
+            armSprite.enabled = true;
         }
         if(transform.position.y <= -18.9)
         {

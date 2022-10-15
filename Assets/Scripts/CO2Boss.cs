@@ -14,7 +14,7 @@ public class CO2Boss : MonoBehaviour
     float timerV = 0;
     void Start()
     {
-        body.velocity = new Vector2(Random.Range(-1f, 1f) * movementSpeed, 1 * movementSpeed);
+        body.velocity = new Vector2(Random.Range(-1, 1) * movementSpeed, 1 * movementSpeed);
         moving = true;
         movementTimer = 5f;
     }
@@ -42,19 +42,18 @@ public class CO2Boss : MonoBehaviour
             if (movementTimer <= 0)
             {
                 moving = false;
-                movementTimer = 0.8f;
-                body.velocity = new Vector2(0f, 0f);
+                movementTimer = 0;
             }
-        }else
+        }
+        else
         {
             movementTimer -= Time.deltaTime;
             if (movementTimer <= 0)
             {
                 moving = true;
-                body.velocity = new Vector2(Random.Range(-1f, 1f) * movementSpeed, 1 * movementSpeed);
                 movementTimer = 5;
             }
-        }    
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

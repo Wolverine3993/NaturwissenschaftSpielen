@@ -5,38 +5,48 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    private Rigidbody2D boby;
+    [SerializeField] Rigidbody2D boby;
     [SerializeField] public float direction;
     [SerializeField] private float jumpHeight;
+    [SerializeField] Animator anim;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] GameObject cutscenez;
     [SerializeField] private float wallSlide;
-    private BoxCollider2D boxColider;
+    private Collider2D boxColider;
     [SerializeField] private float speed = 1f;
     private void Awake()
     {
-        boby = GetComponent<Rigidbody2D>();
-        boxColider = GetComponent<BoxCollider2D>();
+        boxColider = GetComponent<Collider2D>();
         
     }
     void Update()
     {
+        bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
-        if (inputy > 0 && TouchingGround() && !TouchingWallRight())
+        if (inputy > 0 && TouchingGround() && !TouchingWallRight() && !inCutscene)
         {
             Jump();
         }
-        if (input > 0)
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1f);
-        if (input < 0)
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, 1f);
-        
-        direction = input;
-        
-        ///move left and right
-        boby.velocity = new Vector2(input * speed, boby.velocity.y);
-        ///set rotation
-        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        if (!inCutscene)
+        {
+            if (input > 0)
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, 1f);
+            if (input < 0)
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1f);
+
+            if (input > 0 || input < 0)
+                anim.SetBool("walking", true);
+            else
+                anim.SetBool("walking", false);
+
+
+            direction = input;
+
+            boby.velocity = new Vector2(input * speed, boby.velocity.y);
+        }
+        else
+            anim.SetBool("walking", false);
         ///jump
         Sprint();
 
@@ -56,11 +66,12 @@ public class PlayerMovement : MonoBehaviour
     {
         
         boby.velocity = new Vector2(boby.velocity.x, jumpHeight);
+        this.GetComponent<AudioSource>().Play();
         
     }
     private bool TouchingGround()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxColider.bounds.center, boxColider.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(new Vector2(boxColider.bounds.center.x, boxColider.bounds.center.y - boxColider.bounds.size.y/2), new Vector2(boxColider.bounds.size.x, 0.1f), 0f, Vector2.down, 0.1f, groundLayer);
         return raycastHit != false;
     }
     private bool TouchingWallRight()

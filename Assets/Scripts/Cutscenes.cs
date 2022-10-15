@@ -8,7 +8,7 @@ public class Cutscenes : MonoBehaviour
     [SerializeField] GameObject Booss1;
     [SerializeField] GameObject BossFake;
     [SerializeField] float movementSpeed;
-    bool boss1Cutscene;
+    public bool boss1Cutscene;
     float timer1 = 3f;
     int pointIn = 0;
     private void Start()
@@ -37,16 +37,16 @@ public class Cutscenes : MonoBehaviour
         {
             GoToPlayer();
             pointIn = 1;
+            timer1 = 3f;
         }
         boss1Cutscene = true;
         cinematicBars.SetActive(true);
-        if (timer1 <= 0 && pointIn == 1)
+        if (pointIn == 1)
         {
-            transform.position = new Vector2((transform.position.x + (0 - transform.position.x)/2), (transform.position.y + (46 - transform.position.y)/2));
-            if (transform.position.x == 0 && transform.position.y == 46)
+            transform.position = new Vector2((transform.position.x + (0 - transform.position.x)/200), (transform.position.y + (46 - transform.position.y)/200));
+            if (timer1 <= 0)
             {
                 pointIn = 2;
-                timer1 = 2f;
             }
            
         }else if (timer1 <= 0 && pointIn == 2)
@@ -54,7 +54,7 @@ public class Cutscenes : MonoBehaviour
             BossFake.transform.position = transform.position;
             BossFake.SetActive(true);
             pointIn = 3;
-            timer1 = 3f;
+            timer1 = 1f;
         }else if(timer1 <= 0 && pointIn == 3)
         {
             Booss1.transform.position = transform.position;

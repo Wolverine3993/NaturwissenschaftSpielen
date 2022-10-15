@@ -12,8 +12,9 @@ public class Boolet : MonoBehaviour
     Rigidbody2D body;
     CircleCollider2D bulletObject;
     bulletControl bulletControl;
+    public float yVal;
     private float timer;
-    private float direction;
+    public float direction;
     private bool shot = false;
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class Boolet : MonoBehaviour
     {
         timer = 5f;
         mousepos = getMousePos(bulletPoint.transform.position);
-        float yVal = Mathf.Atan2(mousepos.y - bulletPoint.transform.position.y, mousepos.x - bulletPoint.transform.position.x);
+        yVal = Mathf.Atan2(mousepos.y - bulletPoint.transform.position.y, mousepos.x - bulletPoint.transform.position.x);
         GameObject bulletpoint = GameObject.Find("shootypoint");
         direction = Mathf.Sign(GameObject.Find("Capsule").transform.localScale.x);
 
@@ -48,12 +49,12 @@ public class Boolet : MonoBehaviour
         mtmtmtmtmmtm = bulletPoint.GetComponent<Ignore>();
         transform.position = mtmtmtmtmmtm.GetPos();
         Vector2 playerPos = GameObject.Find("Capsule").GetComponent<Rigidbody2D>().velocity;
-        if (Mathf.Abs(yVal) >= 0.8f && direction == 1)
-            body.velocity = new Vector2(booletSpeed * direction, booletSpeed * Mathf.Sign(yVal));
-        else if (Mathf.Abs(yVal) <= 2.3f && direction == -1)
-            body.velocity = new Vector2(booletSpeed * direction, booletSpeed * Mathf.Sign(yVal));
+        if (yVal <= 2.3f && yVal >= 1.4f && direction == 1 || yVal >= -2.3f && yVal <= -1.4f && direction == 1)
+            body.velocity = new Vector2(booletSpeed * -direction, booletSpeed * Mathf.Sign(yVal));
+        else if (yVal >= 0.8f && yVal < 1.8f && direction == -1 || yVal <= -0.8f && yVal > -1.8f && direction == -1)
+            body.velocity = new Vector2(booletSpeed * -direction, booletSpeed * Mathf.Sign(yVal));
         else
-            body.velocity = new Vector2(booletSpeed * direction, 0f);
+            body.velocity = new Vector2(booletSpeed * -direction, 0f);
         shot = true;
     }
 
