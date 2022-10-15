@@ -19,6 +19,13 @@ public class PlayerMovement : MonoBehaviour
         boxColider = GetComponent<Collider2D>();
         
     }
+
+    void Start()
+    {
+        boby.velocity = new Vector2(0f, -4f);
+    }
+
+
     void Update()
     {
         bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
