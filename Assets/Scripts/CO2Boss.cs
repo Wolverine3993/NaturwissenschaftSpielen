@@ -14,7 +14,7 @@ public class CO2Boss : MonoBehaviour
     float timerV = 0;
     void Start()
     {
-        body.velocity = new Vector2(Random.Range(-1, 1) * movementSpeed, 1 * movementSpeed);
+        body.velocity = new Vector2(1 * movementSpeed, 1 * movementSpeed);
         moving = true;
         movementTimer = 5f;
     }
