@@ -5,6 +5,10 @@ using UnityEngine;
 public class bossHealth : MonoBehaviour
 {
     [SerializeField] int health;
+    [SerializeField] GameObject[] atoms;
+    private void Awake()
+    {
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -16,6 +20,11 @@ public class bossHealth : MonoBehaviour
     }
     private void Dead()
     {
-
+        for(int i = atoms.Length - 1; i > 0; i--)
+        {
+            if (atoms[i].activeInHierarchy == false)
+                atoms[i].SetActive(true);
+        }
+        gameObject.SetActive(false);
     }
 }

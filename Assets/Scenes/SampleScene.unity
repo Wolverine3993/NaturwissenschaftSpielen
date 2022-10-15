@@ -341,7 +341,7 @@ MonoBehaviour:
   sprite: {fileID: 78604281}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &78604280
 Animator:
   serializedVersion: 4
@@ -610,7 +610,7 @@ MonoBehaviour:
   sprite: {fileID: 149724366}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &149724364
 Animator:
   serializedVersion: 4
@@ -1026,7 +1026,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d42f36fa00dbfd4585ed9dac780a492, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   sprite: {fileID: 525526414}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &525526412
 Animator:
   serializedVersion: 4
@@ -1663,7 +1663,7 @@ MonoBehaviour:
   sprite: {fileID: 568675185}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &568675184
 Animator:
   serializedVersion: 4
@@ -1905,7 +1905,7 @@ MonoBehaviour:
   sprite: {fileID: 615375913}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!1 &616537424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   sprite: {fileID: 682479808}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &682479806
 Animator:
   serializedVersion: 4
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   sprite: {fileID: 683512481}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &683512479
 Animator:
   serializedVersion: 4
@@ -2536,7 +2536,7 @@ MonoBehaviour:
   sprite: {fileID: 751894490}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &751894489
 Animator:
   serializedVersion: 4
@@ -2665,7 +2665,7 @@ MonoBehaviour:
   sprite: {fileID: 784586447}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &784586445
 Animator:
   serializedVersion: 4
@@ -40800,6 +40800,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!1 &880157779
 GameObject:
   m_ObjectHideFlags: 0
@@ -41166,7 +41167,7 @@ MonoBehaviour:
   sprite: {fileID: 1037101404}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1037101402
 Animator:
   serializedVersion: 4
@@ -41488,6 +41489,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!483693784 &1126723311
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -42315,6 +42317,7 @@ MonoBehaviour:
     m_Bits: 8
   cutscenez: {fileID: 2060049349}
   wallSlide: 5
+  playerpos: {x: 0, y: 0}
   speed: 5
 --- !u!50 &1427031401
 Rigidbody2D:
@@ -42634,7 +42637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1de0f3f0bffac42904306626ab3a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 20
+  atoms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1512716391
 GameObject:
   m_ObjectHideFlags: 0
@@ -42717,7 +42724,7 @@ MonoBehaviour:
   sprite: {fileID: 1512716396}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1512716395
 Animator:
   serializedVersion: 4
@@ -42887,7 +42894,7 @@ MonoBehaviour:
   sprite: {fileID: 1550272744}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1550272743
 Animator:
   serializedVersion: 4
@@ -43016,7 +43023,7 @@ MonoBehaviour:
   sprite: {fileID: 1566030922}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1566030920
 Animator:
   serializedVersion: 4
@@ -43297,7 +43304,7 @@ MonoBehaviour:
   sprite: {fileID: 1814424955}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1814424953
 Animator:
   serializedVersion: 4
@@ -43716,7 +43723,7 @@ MonoBehaviour:
   sprite: {fileID: 1924139338}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1924139336
 Animator:
   serializedVersion: 4
@@ -43903,7 +43910,7 @@ MonoBehaviour:
   sprite: {fileID: 1966185116}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &1966185114
 Animator:
   serializedVersion: 4
@@ -44382,7 +44389,7 @@ MonoBehaviour:
   sprite: {fileID: 2062279699}
   MovementSpeed: 5
   health: 3
-  iTimer: 3
+  iTimer: 2
 --- !u!114 &2062279703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44594,7 +44601,7 @@ MonoBehaviour:
   sprite: {fileID: 2065717533}
   MovementSpeed: 5
   health: 2
-  iTimer: 3
+  iTimer: 2
 --- !u!95 &2065717531
 Animator:
   serializedVersion: 4

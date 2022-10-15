@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject cutscenez;
     [SerializeField] private float wallSlide;
     private Collider2D boxColider;
+    public Vector2 playerpos;
+    float jumpTimer;
     [SerializeField] private float speed = 1f;
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
-        if (inputy > 0 && TouchingGround() && !TouchingWallRight() && !inCutscene)
+        if (inputy > 0 && TouchingGround() && !TouchingWallRight() && !inCutscene && jumpTimer <= 0)
         {
             Jump();
         }
@@ -56,10 +58,13 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("walking", false);
         ///jump
         Sprint();
-
+        if (TouchingGround())
+            playerpos = transform.position;
         ///wall no stick
         if (TouchingWallRight() && boby.velocity.y <= 0)
             boby.velocity = new Vector2(boby.velocity.x, -wallSlide);
+        if (jumpTimer > 0)
+            jumpTimer -= Time.deltaTime;
     }
 
     public void Sprint()
@@ -73,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         boby.velocity = new Vector2(boby.velocity.x, jumpHeight);
+        jumpTimer = 0.1f;
         this.GetComponent<AudioSource>().Play();
         
     }
