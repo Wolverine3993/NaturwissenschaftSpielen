@@ -41,8 +41,7 @@ public class PlayerHurt : MonoBehaviour
             health--;
             if (health > 0)
             {
-                Vector2 pos = GetComponent<PlayerMovement>().prevpos;
-                transform.position = new Vector2(Mathf.Sign(pos.x) * Mathf.Abs(pos.x - 0.5f), pos.y + 0.5f);
+                transform.position = new Vector2(-0.63f, 1.8f);
                 boby.velocity = new Vector2(0f, 0f);
             }
             else

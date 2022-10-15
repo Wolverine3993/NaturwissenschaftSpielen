@@ -13,13 +13,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject cutscenez;
     [SerializeField] private float wallSlide;
     private Collider2D boxColider;
-    public Vector2 prevpos;
     [SerializeField] private float speed = 1f;
     private void Awake()
     {
         boxColider = GetComponent<Collider2D>();
         
     }
+
+    void Start()
+    {
+        boby.velocity = new Vector2(0f, -4f);
+    }
+
+
     void Update()
     {
         bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
@@ -50,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("walking", false);
         ///jump
         Sprint();
-        if (TouchingGround())
-            prevpos = transform.position;
 
         ///wall no stick
         if (TouchingWallRight() && boby.velocity.y <= 0)
