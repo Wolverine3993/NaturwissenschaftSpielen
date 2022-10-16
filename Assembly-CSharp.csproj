@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\Boolet.cs" />
     <Compile Include="Assets\Scripts\HeartPickup.cs" />
     <Compile Include="Assets\Scripts\Ignore.cs" />
+    <Compile Include="Assets\Scripts\destroyOnDeath.cs" />
+    <Compile Include="Assets\Scripts\quitButForReal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -368,6 +370,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>E:\Unity\Unity Hub\editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>E:\Unity\Unity Hub\editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>E:\Unity\Unity Hub\editor\2022.1.15f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>

@@ -19,7 +19,7 @@ public class atomBounce : MonoBehaviour
         int bodyVY = Random.Range(-1, 2);
         if (bodyVX == 0) bodyVX += 1;
         if (bodyVY == 0) bodyVY += 1;
-        body.velocity = new Vector2(bodyVX * 7, bodyVY * 7);
+        body.velocity = new Vector2(bodyVX * 5, bodyVY * 5);
     }
     private void Update()
     {

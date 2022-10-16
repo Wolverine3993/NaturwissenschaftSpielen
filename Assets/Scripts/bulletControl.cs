@@ -10,7 +10,6 @@ public class bulletControl : MonoBehaviour
     Transform shootyPoint;
     private float timer = 0;
 
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) && timer <= 0)

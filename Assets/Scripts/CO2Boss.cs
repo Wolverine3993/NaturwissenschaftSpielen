@@ -63,11 +63,6 @@ public class CO2Boss : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
     private bool TouchingWallHorizontal()
     {
         RaycastHit2D onWallRight = Physics2D.BoxCast(new Vector2(boxcollider.bounds.center.x + boxcollider.bounds.size.x / 2, boxcollider.bounds.center.y), new Vector2(0.1f, boxcollider.bounds.size.y), 0f, Vector2.right, 0.1f, groundlayer);

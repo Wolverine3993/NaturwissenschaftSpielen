@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         boxColider = GetComponent<Collider2D>();
-        
     }
 
     void Start()
@@ -86,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(new Vector2(boxColider.bounds.center.x, boxColider.bounds.center.y - boxColider.bounds.size.y/2), new Vector2(boxColider.bounds.size.x, 0.1f), 0f, Vector2.down, 0.1f, groundLayer);
         return raycastHit != false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "NextLevel")
+            GameObject.Find("Controller").GetComponent<Quit>().scene = 2;
     }
     private bool TouchingWallRight()
     {

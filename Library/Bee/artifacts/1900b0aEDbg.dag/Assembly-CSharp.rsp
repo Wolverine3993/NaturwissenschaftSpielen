@@ -336,6 +336,8 @@
 -r:"E:/Unity/Unity Hub/editor/2022.1.15f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
 -r:"E:/Unity/Unity Hub/editor/2022.1.15f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
 -r:"E:/Unity/Unity Hub/editor/2022.1.15f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
+-r:"E:/Unity/Unity Hub/editor/2022.1.15f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll"
+-r:"E:/Unity/Unity Hub/editor/2022.1.15f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PsdPlugin.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.2D.Animation.Runtime.ref.dll"
@@ -390,6 +392,7 @@
 "Assets/Scripts/bulletControl.cs"
 "Assets/Scripts/CO2Boss.cs"
 "Assets/Scripts/Cutscenes.cs"
+"Assets/Scripts/destroyOnDeath.cs"
 "Assets/Scripts/EnemyControl.cs"
 "Assets/Scripts/FireSpawner.cs"
 "Assets/Scripts/Health.cs"
@@ -401,6 +404,7 @@
 "Assets/Scripts/PlayerHurt.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/Quit.cs"
+"Assets/Scripts/quitButForReal.cs"
 -langversion:9.0
 
 /deterministic
