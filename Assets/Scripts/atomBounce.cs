@@ -6,7 +6,7 @@ public class atomBounce : MonoBehaviour
 {
     [SerializeField] LayerMask groundlayer;
     [SerializeField] LayerMask atoms;
-    [SerializeField] BoxCollider2D boxcollider;
+    [SerializeField] Collider2D boxcollider;
     Rigidbody2D body;
     float timerH = 0;
     float timerV = 0;

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class babyAtomHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int health;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.tag == "Bullet")
+            health--;
+        if (health <= 0)
+            gameObject.SetActive(false);
+            
     }
 }
