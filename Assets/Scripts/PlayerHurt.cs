@@ -11,10 +11,16 @@ public class PlayerHurt : MonoBehaviour
     [SerializeField] float spriteTimer;
     [SerializeField] Rigidbody2D boby;
     [SerializeField] SpriteRenderer sprite;
+    CapsuleCollider2D boxcollider;
+    bool hurt = false;
+    Collider2D sretfghubijkkijuhn;
     float _spriteTimer;
     public int health;
     float _icooldown;
-
+    private void Awake()
+    {
+        boxcollider = GetComponent<CapsuleCollider2D>();
+    }
     private void Start()
     {
         health = 3;
@@ -31,10 +37,12 @@ public class PlayerHurt : MonoBehaviour
             armSprite.enabled = !armSprite.enabled;
             _spriteTimer = spriteTimer;
         }
-        else if(_icooldown <= 0)
+        else if(_icooldown <= 0 && hurt)
         {
             sprite.enabled = true;
             armSprite.enabled = true;
+            Physics2D.IgnoreCollision(boxcollider, sretfghubijkkijuhn, false);
+            hurt = false;
         }
         if(transform.position.y <= -18.9)
         {
@@ -61,6 +69,9 @@ public class PlayerHurt : MonoBehaviour
                 Dead();
             _icooldown = icooldown;
             _spriteTimer = spriteTimer;
+            hurt = true;
+            Physics2D.IgnoreCollision(boxcollider, collision.gameObject.GetComponent<Collider2D>());
+            sretfghubijkkijuhn = collision.gameObject.GetComponent<Collider2D>();
         }
 
     }

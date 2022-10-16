@@ -14,7 +14,11 @@ public class CO2Boss : MonoBehaviour
     float timerV = 0;
     void Start()
     {
-        body.velocity = new Vector2(Random.Range(-1, 1) * movementSpeed, 1 * movementSpeed);
+        int bodyVX = Random.Range(-1, 2);
+        int bodyVY = Random.Range(-1, 2);
+        if (bodyVX == 0) bodyVX += 1;
+        if (bodyVY == 0) bodyVY += 1;
+        body.velocity = new Vector2(bodyVX * movementSpeed, bodyVY * movementSpeed);
         moving = true;
         movementTimer = 5f;
     }
@@ -22,36 +26,40 @@ public class CO2Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        bool dead = GetComponent<bossHealth>().dead;
+        if (!dead)
         {
-            if (timerH > 0)
-                timerH -= Time.deltaTime;
-            if (timerV > 0)
-                timerV -= Time.deltaTime;
-            if (TouchingWallHorizontal() && timerH <= 0)
+            if (moving)
             {
-                body.velocity = new Vector2(body.velocity.x * -1, body.velocity.y);
-                timerH = 0.1f;
+                if (timerH > 0)
+                    timerH -= Time.deltaTime;
+                if (timerV > 0)
+                    timerV -= Time.deltaTime;
+                if (TouchingWallHorizontal() && timerH <= 0)
+                {
+                    body.velocity = new Vector2(body.velocity.x * -1, body.velocity.y);
+                    timerH = 0.1f;
+                }
+                if (TouchingWallVertical() && timerV <= 0)
+                {
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y * -1);
+                    timerV = 0.1f;
+                }
+                movementTimer -= Time.deltaTime;
+                if (movementTimer <= 0)
+                {
+                    moving = false;
+                    movementTimer = 0;
+                }
             }
-            if (TouchingWallVertical() && timerV <= 0)
+            else
             {
-                body.velocity = new Vector2(body.velocity.x, body.velocity.y * -1);
-                timerV = 0.1f;
-            }
-            movementTimer -= Time.deltaTime;
-            if (movementTimer <= 0)
-            {
-                moving = false;
-                movementTimer = 0;
-            }
-        }
-        else
-        {
-            movementTimer -= Time.deltaTime;
-            if (movementTimer <= 0)
-            {
-                moving = true;
-                movementTimer = 5;
+                movementTimer -= Time.deltaTime;
+                if (movementTimer <= 0)
+                {
+                    moving = true;
+                    movementTimer = 5;
+                }
             }
         }
     }
