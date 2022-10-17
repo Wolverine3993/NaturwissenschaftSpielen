@@ -61,6 +61,7 @@ public class Cutscenes : MonoBehaviour
             Booss1.SetActive(true);
             BossFake.SetActive(false);
             boss1Cutscene = false;
+            Camera.main.orthographicSize = 7f;
         }
         timer1 -= Time.deltaTime;
     }

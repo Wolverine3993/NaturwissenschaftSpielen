@@ -11,6 +11,7 @@ public class PlayerHurt : MonoBehaviour
     [SerializeField] float spriteTimer;
     [SerializeField] Rigidbody2D boby;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] AudioSource hit;
     CapsuleCollider2D boxcollider;
     bool hurt = false;
     Collider2D sretfghubijkkijuhn;
@@ -72,6 +73,7 @@ public class PlayerHurt : MonoBehaviour
             hurt = true;
             Physics2D.IgnoreCollision(boxcollider, collision.gameObject.GetComponent<Collider2D>());
             sretfghubijkkijuhn = collision.gameObject.GetComponent<Collider2D>();
+            hit.Play();
         }
 
     }
@@ -88,6 +90,7 @@ public class PlayerHurt : MonoBehaviour
                 Dead();
             _icooldown = icooldown;
             _spriteTimer = spriteTimer;
+            hit.Play();
         }
     }
 

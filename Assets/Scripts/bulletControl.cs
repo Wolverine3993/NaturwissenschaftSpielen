@@ -6,7 +6,7 @@ public class bulletControl : MonoBehaviour
 {
     [SerializeField] public float booletSpeed;
     [SerializeField] private GameObject bullets;
-    [SerializeField] private float cooldown;
+    [SerializeField] public float cooldown;
     Transform shootyPoint;
     private float timer = 0;
 

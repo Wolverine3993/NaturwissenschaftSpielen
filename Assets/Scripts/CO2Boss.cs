@@ -15,10 +15,8 @@ public class CO2Boss : MonoBehaviour
     void Start()
     {
         int bodyVX = Random.Range(-1, 2);
-        int bodyVY = Random.Range(-1, 2);
         if (bodyVX == 0) bodyVX += 1;
-        if (bodyVY == 0) bodyVY += 1;
-        body.velocity = new Vector2(bodyVX * movementSpeed, bodyVY * movementSpeed);
+        body.velocity = new Vector2(bodyVX * movementSpeed, 1 * movementSpeed);
         moving = true;
         movementTimer = 5f;
     }

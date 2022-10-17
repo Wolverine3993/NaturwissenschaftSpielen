@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.Space))
+            inputy = 1;
         if (inputy > 0 && TouchingGroundReg() && !inCutscene && jumpTimer <= 0)
         {
             Jump();
@@ -61,8 +63,6 @@ public class PlayerMovement : MonoBehaviour
         if (TouchingGroundReg())
             playerpos = transform.position;
         ///wall no stick
-        if (TouchingWallRight() && boby.velocity.y <= 0)
-            boby.velocity = new Vector2(boby.velocity.x, -wallSlide);
         if (jumpTimer > 0)
             jumpTimer -= Time.deltaTime;
     }
@@ -98,13 +98,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.name == "NextLevel")
             GameObject.Find("Controller").GetComponent<Quit>().scene = 2;
     }
-    private bool TouchingWallRight()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxColider.bounds.center, new Vector3(boxColider.bounds.size.x, boxColider.bounds.size.y - 0.2f, boxColider.bounds.size.z), 0f, Vector2.right, 0.1f, groundLayer);
-        RaycastHit2D rarycastHit = Physics2D.BoxCast(boxColider.bounds.center, new Vector3(boxColider.bounds.size.x, boxColider.bounds.size.y - 0.2f, boxColider.bounds.size.z), 0f, Vector2.left, 0.1f, groundLayer);
-        if (raycastHit != false)
-            return raycastHit != false;
-        return rarycastHit != false;
+        if (collision.gameObject.tag == "bulletP")
+        {
+            GameObject.Find("booletControl").GetComponent<bulletControl>().cooldown = 0.3f;
+            Destroy(collision.gameObject, 0);
+        }
     }
-    
+
 }

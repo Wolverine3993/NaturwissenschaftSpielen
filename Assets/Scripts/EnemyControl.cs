@@ -61,6 +61,7 @@ public class EnemyControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet" && _iTimer <= 0)
         {
+            GameObject.Find("enemyAudio").GetComponent<AudioSource>().Play();
             health--;
             if (health <= 0)
                 gameObject.SetActive(false);
