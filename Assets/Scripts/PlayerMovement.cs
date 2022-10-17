@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
-        if (inputy > 0 && TouchingGround() && !TouchingWallRight() && !inCutscene && jumpTimer <= 0)
+        if (inputy > 0 && TouchingGroundReg() && !inCutscene && jumpTimer <= 0)
         {
             Jump();
         }
@@ -49,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("walking", true);
             else
                 anim.SetBool("walking", false);
-
+            
 
             direction = input;
 
@@ -59,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("walking", false);
         ///jump
         Sprint();
-        if (TouchingGround())
+        if (TouchingGroundReg())
             playerpos = transform.position;
         ///wall no stick
         if (TouchingWallRight() && boby.velocity.y <= 0)
@@ -86,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
     private bool TouchingGround()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(new Vector2(boxColider.bounds.center.x, boxColider.bounds.center.y - boxColider.bounds.size.y/2), new Vector2(boxColider.bounds.size.x, 0.1f), 0f, Vector2.down, 0.1f, groundLayer);
+        return raycastHit != false;
+    }
+
+    private bool TouchingGroundReg()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(new Vector2(boxColider.bounds.center.x, boxColider.bounds.center.y - boxColider.bounds.size.y / 2), new Vector2(boxColider.bounds.size.x - 0.2f, 0.1f), 0f, Vector2.down, 0.1f, groundLayer);
         return raycastHit != false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
