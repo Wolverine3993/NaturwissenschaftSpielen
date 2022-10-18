@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class bossHealth : MonoBehaviour
@@ -8,13 +9,17 @@ public class bossHealth : MonoBehaviour
     [SerializeField] GameObject[] atoms;
     [SerializeField] GameObject explosion;
     [SerializeField] GameObject nextLevel;
+    SpriteRenderer sprite;
     BoxCollider2D boxcollider;
     int carbonDed = 0;
+    bool hurt = false;
+    public float hurtTimer;
     int oxy1Ded = 0;
     int oxy2Ded = 0;
     public bool dead = false;
     private void Awake()
     {
+        sprite = GetComponent<SpriteRenderer>();
         boxcollider = GetComponent<BoxCollider2D>();
     }
     private void Update()
@@ -33,14 +38,30 @@ public class bossHealth : MonoBehaviour
             if (oxy1Ded == 1 && carbonDed == 1 && oxy2Ded == 1)
                 NextLevel();
         }
+        if (hurt)
+        {
+            sprite.enabled = false;
+            hurtTimer -= Time.deltaTime;
+            if(hurtTimer <= 0)
+            {
+                sprite.enabled = true;
+                hurt = false;
+            }
+        }
+               
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet" && !dead)
         {
             health--;
+            hurt = true;
+            hurtTimer = 0.1f;
             if (health <= 0)
+            {
+                hurt = false;
                 Dead();
+            }
         }
     }
     private void Dead()
@@ -67,6 +88,7 @@ public class bossHealth : MonoBehaviour
 
     private void NextLevel()
     {
+        Camera.main.orthographicSize = 5;
         nextLevel.SetActive(true);
     }
 }

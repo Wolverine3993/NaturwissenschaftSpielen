@@ -17,9 +17,9 @@ public class FireSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            GameObject clone = GameObject.Instantiate(fire, new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z), transform.rotation, fireEmpty.transform);
-            clone.SetActive(true);
-            Destroy(clone, 0.5f);
+            GameObject clome = GameObject.Instantiate(fire, new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z), transform.rotation, fireEmpty.transform);
+            clome.SetActive(true);
+            Destroy(clome, 0.5f);
             timer = 0.1f;
         }
     }

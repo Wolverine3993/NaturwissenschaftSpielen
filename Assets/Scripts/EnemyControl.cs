@@ -14,7 +14,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] float iTimer;
     float betweenSprites = 0.1f;
     float _iTimer;
-    int direction = 1;
+    [SerializeField] int direction = 1;
     float timer = 0.1f;
     float _timer = 0;
     private void Update()
@@ -64,7 +64,7 @@ public class EnemyControl : MonoBehaviour
             GameObject.Find("enemyAudio").GetComponent<AudioSource>().Play();
             health--;
             if (health <= 0)
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             _iTimer = iTimer;
         }
     }
