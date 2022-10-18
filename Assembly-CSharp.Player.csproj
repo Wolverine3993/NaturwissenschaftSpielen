@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\quitButForReal.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\startScreen.cs" />
+    <Compile Include="Assets\Scripts\door.cs" />
     <Compile Include="Assets\Scripts\atomBounce.cs" />
     <Compile Include="Assets\Scripts\bossHealth.cs" />
     <Compile Include="Assets\Scripts\Boolet.cs" />

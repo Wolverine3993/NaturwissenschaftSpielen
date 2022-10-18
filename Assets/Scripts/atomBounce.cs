@@ -20,6 +20,8 @@ public class atomBounce : MonoBehaviour
         if (bodyVX == 0) bodyVX += 1;
         if (bodyVY == 0) bodyVY += 1;
         body.velocity = new Vector2(bodyVX * 5, bodyVY * 5);
+        if (TouchingWallHorizontal())
+            transform.position = new Vector2(Mathf.Sign(transform.position.x) * (Mathf.Abs(transform.position.x) + 2), transform.position.y);
     }
     private void Update()
     {
@@ -35,12 +37,12 @@ public class atomBounce : MonoBehaviour
             if (TouchingWallHorizontal() && timerH <= 0 || TouchingAtomH() && timerH <= 0)
             {
                 body.velocity = new Vector2(body.velocity.x * -1, body.velocity.y);
-                timerH = 0.1f;
+                timerH = 0.05f;
             }
             if (TouchingWallVertical() && timerV <= 0 || TouchingAtomV() && timerV <= 0)
             {
                 body.velocity = new Vector2(body.velocity.x, body.velocity.y * -1);
-                timerV = 0.1f;
+                timerV = 0.05f;
             }
             movementTimer -= Time.deltaTime;
             if (movementTimer <= 0)

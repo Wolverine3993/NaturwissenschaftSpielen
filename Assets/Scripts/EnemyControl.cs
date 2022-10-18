@@ -10,13 +10,13 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] float MovementSpeed;
-    [SerializeField] int health;
+    [SerializeField] int health; 
     [SerializeField] float iTimer;
     float betweenSprites = 0.1f;
     float _iTimer;
     int direction = 1;
     float timer = 0.1f;
-    float _timer;
+    float _timer = 0;
     private void Update()
     {
         if (!OnFloor() && _timer <= 0)

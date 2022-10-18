@@ -61,6 +61,7 @@ public class bossHealth : MonoBehaviour
         Destroy(expl, 0.4f);
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CO2Boss>().enabled = false;
         dead = true;
     }
 
