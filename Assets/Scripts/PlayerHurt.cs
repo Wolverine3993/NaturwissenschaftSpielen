@@ -42,7 +42,8 @@ public class PlayerHurt : MonoBehaviour
         {
             sprite.enabled = true;
             armSprite.enabled = true;
-            Physics2D.IgnoreCollision(boxcollider, sretfghubijkkijuhn, false);
+            if(sretfghubijkkijuhn != null)
+                Physics2D.IgnoreCollision(boxcollider, sretfghubijkkijuhn, false);
             hurt = false;
         }
         if(transform.position.y <= -18.9)

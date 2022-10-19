@@ -14,6 +14,8 @@ public class NextScene : MonoBehaviour
     {
         if (GameObject.Find("Controller") != null)
             smene = GameObject.Find("Controller").GetComponent<Quit>().scene;
+        if (GameObject.Find("Capsule") != null)
+            GameObject.Find("Capsule").GetComponent<PlayerHurt>().health = 3;
         if(smene == 1)
             SceneManager.LoadScene(sceneName: "SampleScene");
         if (smene == 2)

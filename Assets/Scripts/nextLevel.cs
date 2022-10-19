@@ -11,6 +11,7 @@ public class nextLevel : MonoBehaviour
         {
             GameObject.Find("Controller").GetComponent<Quit>().scene = 2; 
             SceneManager.LoadScene(sceneName: "Level2");
+            GameObject.Find("Capsule").GetComponent<PlayerHurt>().health = 3;
         }
     }
 }

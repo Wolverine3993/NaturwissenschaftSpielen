@@ -74,7 +74,7 @@ public class bossHealth : MonoBehaviour
             if (atoms[i].gameObject.name == "Oxygen")
                 atoms[i].transform.position = new Vector2(transform.position.x + boxcollider.bounds.size.x / 2, transform.position.y - boxcollider.bounds.size.y / 2);
             if (atoms[i].gameObject.name == "Oxygen (1)")
-                atoms[i].transform.position = new Vector2(transform.position.x - boxcollider.bounds.size.x / 2, transform.position.y - boxcollider.bounds.size.y / 2);
+                atoms[i].transform.position = new Vector2(transform.position.x - boxcollider.bounds.size.x / 2 - 3, transform.position.y - boxcollider.bounds.size.y / 2);
         }
         GameObject expl = GameObject.Instantiate(explosion, transform.position, transform.rotation);
         expl.transform.localScale = new Vector2(4, 4);

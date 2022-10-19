@@ -15,6 +15,7 @@ public class bulletControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && timer <= 0)
         {
             Shoot();
+            GetComponent<AudioSource>().Play();
             timer = cooldown;
         }
         timer -= Time.deltaTime;

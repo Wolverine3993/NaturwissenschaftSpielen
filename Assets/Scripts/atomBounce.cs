@@ -13,7 +13,7 @@ public class atomBounce : MonoBehaviour
     float timerV = 0;
     float movementTimer = 0;
     float beginningTimer = 0.5f;
-    bool moving = true;
+    bool moving = false;
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -31,7 +31,7 @@ public class atomBounce : MonoBehaviour
         }
         if (TouchingWallVertical())
         {
-            if (transform.position.y > 30)
+            if (transform.position.y > 45)
                 transform.position = new Vector2(transform.position.x, transform.position.y - 3);
             else
                 transform.position = new Vector2(transform.position.x, transform.position.y + 3);
@@ -39,6 +39,22 @@ public class atomBounce : MonoBehaviour
     }
     private void Update()
     {
+        if (TouchingWallHorizontal() && !moving)
+        {
+            if (transform.position.x > 7)
+                transform.position = new Vector2(transform.position.x - 3, transform.position.y);
+            else
+                transform.position = new Vector2(transform.position.x + 3, transform.position.y);
+        }
+        if (TouchingWallVertical() && !moving)
+        {
+            if (transform.position.y > 30)
+                transform.position = new Vector2(transform.position.x, transform.position.y - 3);
+            else
+                transform.position = new Vector2(transform.position.x, transform.position.y + 3);
+        }
+        else if (!moving)
+            moving = true;
         body = GetComponent<Rigidbody2D>();
         timerH -= Time.deltaTime;
         timerV -= Time.deltaTime;
@@ -63,7 +79,7 @@ public class atomBounce : MonoBehaviour
             movementTimer -= Time.deltaTime;
             if (movementTimer <= 0)
             {
-                moving = false;
+                moving = true;
                 movementTimer = 0;
             }
         }

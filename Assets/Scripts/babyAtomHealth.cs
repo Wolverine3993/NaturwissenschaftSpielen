@@ -39,6 +39,7 @@ public class babyAtomHealth : MonoBehaviour
         {
             hurt = false;
             GameObject clone = GameObject.Instantiate(explode, transform.position, transform.rotation);
+            clone.SetActive(true);
             Destroy(clone, 0.4f);
             gameObject.SetActive(false);
         }

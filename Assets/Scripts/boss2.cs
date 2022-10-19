@@ -15,6 +15,9 @@ public class boss2 : MonoBehaviour
     [SerializeField] public int carbonAtoms;
     [SerializeField] public int strongEnemies;
     [SerializeField] GameObject[] explodes;
+    [SerializeField] GameObject finish;
+    float deathTimer;
+    int explose = 0;
     public bool canSpawn = false;
     float weakTimer;
     bool dead = false;
@@ -41,6 +44,8 @@ public class boss2 : MonoBehaviour
             carbonTimer -= Time.deltaTime;
         if(!dead && canSpawn)
             Spawn();
+        if (dead)
+            Dead();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,9 +54,10 @@ public class boss2 : MonoBehaviour
             health--;
             Destroy(collision.gameObject);
         }
-        if (health <= 0)
+        if (health <= 0 && dead == false)
         {
             dead = true;
+            deathTimer = 0.4f;
             Dead();
         }
     }
@@ -102,6 +108,27 @@ public class boss2 : MonoBehaviour
     }
     private void Dead()
     {
-
+        if (explose == 0)
+        {
+            explodes[explose].SetActive(true);
+            Destroy(explodes[explose], 0.4f);
+            deathTimer = 0.3f;
+            explose = 1;
+        }
+        else if(explose == 1 && deathTimer <= 0)
+        {
+            explodes[explose].SetActive(true);
+            Destroy(explodes[explose], 0.4f);
+            deathTimer = 0.4f;
+            explose = 2;
+        }
+        else if(explose == 2 && deathTimer <= 0)
+        {
+            explodes[explose].SetActive(true);
+            Destroy(explodes[explose], 0.4f);
+            finish.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        deathTimer -= Time.deltaTime;
     }
 }

@@ -8,12 +8,12 @@ public class Health : MonoBehaviour
     [SerializeField] SpriteRenderer[] hearts;
     [SerializeField] Sprite[] heartSprites;
     int health;
-    private void Start()
+    private void Awake()
     {
     }
     void Update()
     {
-        health = player.GetComponent<PlayerHurt>().health;
+        health = GameObject.Find("Capsule").GetComponent<PlayerHurt>().health;
         if (health == 3)
         {
             hearts[1].sprite = heartSprites[0];
