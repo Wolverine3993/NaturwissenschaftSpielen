@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wallSlide;
     private Collider2D boxColider;
     public Vector2 playerpos;
+    public bool inCutscene;
     float jumpTimer;
     [SerializeField] private float speed = 1f;
     private void Awake()
@@ -30,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        bool inCutscene = cutscenez.GetComponent<Cutscenes>().boss1Cutscene;
         float input = Input.GetAxisRaw("Horizontal");
         float inputy = Input.GetAxisRaw("Vertical");
         if (Input.GetKey(KeyCode.Space))

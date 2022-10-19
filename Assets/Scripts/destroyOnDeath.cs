@@ -8,11 +8,7 @@ public class destroyOnDeath : MonoBehaviour
     void Start()
     {
         GameObject.Find("Button").GetComponent<NextScene>().smene = GameObject.Find("Controller").GetComponent<Quit>().scene;
-        if (GameObject.Find("Capsule") != null)
-            Destroy(GameObject.Find("Capsule"));
-        if (GameObject.Find("CutsceneController") != null)
-            Destroy(GameObject.Find("CutsceneController"));
-        if (GameObject.Find("booletControl") != null)
-            Destroy(GameObject.Find("booletControl"));
+        Destroy(GameObject.Find("CutsceneController"));
+        GameObject.Find("Capsule").transform.position = new Vector2(100, 100);
     }
 }

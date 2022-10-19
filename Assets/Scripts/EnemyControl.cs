@@ -64,7 +64,7 @@ public class EnemyControl : MonoBehaviour
             GameObject.Find("enemyAudio").GetComponent<AudioSource>().Play();
             health--;
             if (health <= 0)
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             _iTimer = iTimer;
         }
     }

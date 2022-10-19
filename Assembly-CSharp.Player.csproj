@@ -65,22 +65,28 @@
     <Compile Include="Assets\Scripts\destroyOnDeath.cs" />
     <Compile Include="Assets\Scripts\bulletControl.cs" />
     <Compile Include="Assets\Scripts\FireSpawner.cs" />
+    <Compile Include="Assets\Scripts\nextLevel.cs" />
+    <Compile Include="Assets\Scripts\onLevelTwoLoad.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\babyAtomHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerHurt.cs" />
     <Compile Include="Assets\Scripts\CO2Boss.cs" />
+    <Compile Include="Assets\Scripts\EnemyControl1.cs" />
     <Compile Include="Assets\Scripts\arms.cs" />
     <Compile Include="Assets\Scripts\quitButForReal.cs" />
+    <Compile Include="Assets\Scripts\babyAtomHealth1.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\startScreen.cs" />
     <Compile Include="Assets\Scripts\door.cs" />
+    <Compile Include="Assets\Scripts\boss2.cs" />
     <Compile Include="Assets\Scripts\atomBounce.cs" />
     <Compile Include="Assets\Scripts\bossHealth.cs" />
     <Compile Include="Assets\Scripts\Boolet.cs" />
     <Compile Include="Assets\Scripts\HeartPickup.cs" />
     <Compile Include="Assets\Scripts\Ignore.cs" />
+    <Compile Include="Assets\Scripts\Cutscene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

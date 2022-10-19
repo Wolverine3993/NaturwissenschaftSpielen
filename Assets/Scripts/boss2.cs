@@ -12,8 +12,10 @@ public class boss2 : MonoBehaviour
     [SerializeField] float strongCooldown;
     [SerializeField] float carbonCooldown;
     [SerializeField] int health;
-    [SerializeField] List<GameObject> carbonAtoms = new List<GameObject>();
-    [SerializeField] List<GameObject> strongEnemies = new List<GameObject>();
+    [SerializeField] public int carbonAtoms;
+    [SerializeField] public int strongEnemies;
+    [SerializeField] GameObject[] explodes;
+    public bool canSpawn = false;
     float weakTimer;
     bool dead = false;
     float strongTimer;
@@ -37,12 +39,12 @@ public class boss2 : MonoBehaviour
             strongTimer -= Time.deltaTime;
         if (carbonTimer > 0)
             carbonTimer -= Time.deltaTime;
-        if(!dead)
+        if(!dead && canSpawn)
             Spawn();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bullet" && canSpawn)
         {
             health--;
             Destroy(collision.gameObject);
@@ -73,28 +75,28 @@ public class boss2 : MonoBehaviour
                 clone.SetActive(true);
                 weakTimer = weakCooldown;
             }
-            if(strongTimer <= 0 && strongEnemies.Count < 5)
+            if(strongTimer <= 0 && strongEnemies < 4)
             {
                 GameObject clone = GameObject.Instantiate(enemystrong, new Vector2(13.8f, -1.49f), transform.rotation);
                 clone.SetActive(true);
                 strongTimer = strongCooldown;
-                strongEnemies.Add(clone);
+                strongEnemies++;
             }
         }else if(phase == 3)
         {
-            if(strongTimer <= 0 && strongEnemies.Count < 5)
+            if(strongTimer <= 0 && strongEnemies < 4)
             {
                 GameObject clone = GameObject.Instantiate(enemystrong, new Vector2(13.8f, -1.49f), transform.rotation);
                 clone.SetActive(true);
                 strongTimer = strongCooldown;
-                strongEnemies.Add(clone);
+                strongEnemies++;
             }
-            if(carbonTimer <= 0 && carbonAtoms.Count < 4)
+            if(carbonTimer <= 0 && carbonAtoms < 3)
             {
                 GameObject clone = GameObject.Instantiate(carbon, new Vector2(18.43f, 3.97f), transform.rotation);
                 clone.SetActive(true);
                 carbonTimer = carbonCooldown;
-                carbonAtoms.Add(clone);
+                carbonAtoms++;
             }
         }
     }
